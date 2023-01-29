@@ -154,3 +154,17 @@ def enroll(request):
         return redirect('/join')
 
     return render(request,"enroll.html",context)
+
+def change_pass(request):
+    if request.method == 'POST':
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+
+        if pass1 != pass2:
+            messages.info(request, 'Possaword does not match.')
+            return render(request,"change_password.html")
+        user = User.objects.get(username = request.user)
+        user.set_password(pass1)
+        user.save()
+        return redirect('/login')
+    return render(request, 'change_password.html')

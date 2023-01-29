@@ -57,7 +57,9 @@
           {% if not request.user.is_authenticated %}
           <li><a class="nav-link scrollto" href="/signup">Sign IN</a></li>
           {% else %}
+          <li><a class="nav-link scrollto" href="/change">Change Password</a></li>
           <li><a class="nav-link scrollto" href="/logout">Log Out</a></li>
+
           {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
